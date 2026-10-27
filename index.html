@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JagatSaji - Katalog Makanan</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #fffdf9;
+  color: #29221b;
+}
+
+/* NAVBAR */
+header {
+  background: #080808;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+nav a:hover {
+  color: #e9a54c;
+}
+
+.kanan {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ikon {
+  background: none;
+  border: none;
+  color: #e8a04a;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn {
+  background: #e9a342;
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.btn:hover {
+  background: #cb8428;
+}
+
+/* HERO */
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  padding: 65px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 55px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero h1 {
+  color: #d99b5b;
+  font-size: 43px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.hero img {
+  width: 45%;
+  height: 310px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 7px 18px #d7b98c;
+}
+
+/* KATALOG */
+.menu-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px;
+  border-top: 1px solid #ccc;
+}
+
+.menu-section h2 {
+  color: #d99b5b;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.pencarian {
+  display: none;
+  width: 100%;
+  max-width: 400px;
+  padding: 13px;
+  border: 1px solid #dfc39a;
+  border-radius: 8px;
+  margin: 0 auto 25px;
+  font-size: 15px;
+}
+
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: #efd0a0;
+  padding: 18px;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 18px #d8c4a9;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card h3 {
+  margin: 16px 0 10px;
+  font-size: 19px;
+}
+
+.card p {
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 65px;
+}
+
+.harga {
+  color: #9d531c;
+  font-weight: bold;
+  margin: 13px 0;
+  font-size: 16px;
+}
+
+.card .btn {
+  margin-top: 8px;
+}
+
+/* FOOTER */
+footer {
+  background: #080808;
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+  margin-top: 60px;
+}
+
+footer h2 {
+  color: #e9a342;
+  margin-bottom: 12px;
+}
+
+footer p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  header {
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    padding: 35px 20px;
+    gap: 25px;
+  }
+
+  .hero img {
+    width: 100%;
+    height: 230px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .grid-menu {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .card img {
+    height: 125px;
+  }
+
+  .card h3 {
+    font-size: 15px;
+  }
+
+  .card p {
+    font-size: 11px;
+  }
+
+  .menu-section {
+    padding: 20px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .grid-menu {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header id="beranda">
+  <div class="logo">JagatSaji</div>
+
+  <nav>
+    <a href="#beranda">Beranda</a>
+    <a href="#menu">Menu</a>
+    <a href="#rekanan">Rekanan</a>
+    <a href="#kontak">Hubungi Kami</a>
+  </nav>
+
+  <div class="kanan">
+    <button class="ikon" onclick="cariMenu()">⌕</button>
+    <button class="ikon" onclick="lihatKeranjang()">
+      🛒 <span id="jumlah">0</span>
+    </button>
+    <a href="#menu" class="btn">Pesan Disini</a>
+  </div>
+</header>
+
+<!-- HALAMAN UTAMA -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Sajian Masakan<br>Indonesia</h1>
+
+    <p>
+      Nikmati kelezatan resep warisan kuliner yang
+      diolah dari bumbu rempah pilihan. Dari Sabang
+      sampai Merauke, kami menghadirkan kehangatan
+      tradisi Indonesia langsung ke meja makan Anda.
+      Jelajahi rasa kuliner Nusantara dengan sentuhan
+      rempah, kesegaran bahan, dan kehangatan tradisi
+      dalam setiap sajian. Pesan sekarang dan nikmati
+      kelezatan masakan khas Indonesia!
+    </p>
+
+    <a href="#menu" class="btn">Pesan Sekarang</a>
+  </div>
+
+  <img
+    src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=900"
+    alt="Masakan Indonesia">
+</section>
+
+<!-- PILIHAN MENU -->
+<section class="menu-section" id="menu">
+  <h2>Pilihan Menu</h2>
+
+  <input
+    type="text"
+    class="pencarian"
+    id="pencarian"
+    placeholder="Cari makanan..."
+    onkeyup="filterMenu()">
+
+  <div class="grid-menu">
+
+    <!-- MENU 1 -->
+    <div class="card">
+      <img
+        src="nusantara.jpg"
+        alt="Nasi Kuning">
+
+      <h3>Nasi Kuning</h3>
+      <p>
+        Memiliki cita rasa yang gurih dengan
+        warna kuning cerah, membuat hidangan
+        ini disukai banyak orang.
+      </p>
+      <div class="harga">Rp15.000</div>
+      <button class="btn"
+        onclick="pesan('Nasi Kuning',15000)">
+        Pesan Sekarang
+      </button>
+    </div>
+
+    <!-- MENU 2 -->
+    <div class="card">
+      <img
+        src="gado-gado.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600'"
+        alt="Gado-gado">
+
+      <h3>Gado-gado</h3>
+      <p>
+        Salah satu makanan khas Indonesia
+        yang terdiri dari aneka sayuran
+        dengan saus kacang yang lezat.
+      </p>
+      <div class="harga">Rp18.000</div>
+      <button class="btn"
+        onclick="pesan('Gado-gado',18000)">
+        Pesan Sekarang
+      </button>
+    </div>
+
+    <!-- MENU 3 -->
+    <div class="card">
+      <img
+        src="Nasi Uduk Betawi.jpg"
+        alt="Nasi Uduk">
+
+      <h3>Nasi Uduk</h3>
+      <p>
+        Nasi uduk adalah olahan nasi
+        dengan khas Betawi yang terbuat
+        dari beras dan santan.
+      </p>
+      <div class="harga">Rp15.000</div>
+      <button class="btn"
+        onclick="pesan('Nasi Uduk',15000)">
+        Pesan Sekarang
+      </button>
+    </div>
+
+    <!-- MENU 4 -->
+    <div class="card">
+      <img
+        src="I AM GEPREK BENSU - Melanao Indonesia.jpg"
+        alt="Nasi Daun Jeruk">
+
+      <h3>Nasi Daun Jeruk</h3>
+      <p>
+        Nasi daun jeruk adalah olahan nasi
+        dengan aroma daun jeruk yang harum,
+        gurih, dan menggugah selera.
+      </p>
+      <div class="harga">Rp17.000</div>
+      <button class="btn"
+        onclick="pesan('Nasi Daun Jeruk',17000)">
+        Pesan Sekarang
+      </button>
+    </div>
+
+    <!-- MENU 5 -->
+    <div class="card">
+      <img
+        src="nasi pecel.jpg"
+        alt="Nasi Pecel">
+
+      <h3>Nasi Pecel</h3>
+      <p>
+        Nasi pecel berupa nasi putih
+        yang disajikan dengan aneka sayuran
+        serta lauk dan siraman bumbu kacang.
+      </p>
+      <div class="harga">Rp16.000</div>
+      <button class="btn"
+        onclick="pesan('Nasi Pecel',16000)">
+        Pesan Sekarang
+      </button>
+    </div>
+
+    <!-- MENU 6 -->
+    <div class="card">
+      <img
+        src="Rujak Cingur Jawa Timur.jpg"
+        alt="Rujak Cingur">
+
+      <h3>Rujak Cingur</h3>
+      <p>
+        Rujak cingur merupakan salah satu
+        makanan tradisional khas Jawa Timur
+        dengan perpaduan sayuran dan bumbu petis.
+      </p>
+      <div class="harga">Rp20.000</div>
+      <button class="btn"
+        onclick="pesan('Rujak Cingur',20000)">
+        Pesan Sekarang
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- REKANAN -->
+<section class="menu-section" id="rekanan">
+  <h2>Rekanan Kami</h2>
+  <p style="text-align:center;line-height:1.8">
+    JagatSaji bekerja sama dengan penyedia
+    bahan makanan lokal untuk menghadirkan
+    hidangan Nusantara yang berkualitas.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <h2>JagatSaji</h2>
+  <p>
+    Sajian Masakan Indonesia<br>
+    Menghadirkan cita rasa Nusantara
+    dalam setiap hidangan.
+  </p>
+  <p>© 2026 JagatSaji. All Rights Reserved.</p>
+</footer>
+
+<script>
+let keranjang = [];
+
+function pesan(nama, harga) {
+  keranjang.push({nama, harga});
+
+  document.getElementById("jumlah").innerText =
+    keranjang.length;
+
+  alert(nama + " berhasil ditambahkan ke keranjang!");
+}
+
+function lihatKeranjang() {
+  if (keranjang.length === 0) {
+    alert("Keranjang masih kosong!");
+    return;
+  }
+
+  let teks = "KERANJANG BELANJA\n\n";
+  let total = 0;
+
+  keranjang.forEach((item, index) => {
+    teks += (index + 1) + ". " + item.nama +
+      " - Rp" + item.harga.toLocaleString("id-ID") + "\n";
+    total += item.harga;
+  });
+
+  teks += "\nTotal: Rp" +
+    total.toLocaleString("id-ID");
+
+  alert(teks);
+}
+
+function cariMenu() {
+  let input = document.getElementById("pencarian");
+  input.style.display = "block";
+  document.getElementById("menu").scrollIntoView();
+  input.focus();
+}
+
+function filterMenu() {
+  let keyword = document.getElementById("pencarian")
+    .value.toLowerCase();
+
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let nama = card.querySelector("h3")
+      .innerText.toLowerCase();
+
+    card.style.display =
+      nama.includes(keyword) ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
